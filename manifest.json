@@ -1,0 +1,47 @@
+{
+  "name": "Foo",
+  "description": "Foo extension",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "icons": {
+    "48": "icons/icon_48.png",
+    "128": "icons/icon_128.png"
+  },
+  "browser_action": {
+    "default_title": "foo",
+    "default_popup": "popup/popup.html#popup"
+  },
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "chrome_style": true
+  },
+  "permissions": [
+    "desktopCapture",
+    "notifications",
+    "storage",
+    "activeTab",
+    "tabCapture"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content_script.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "images/*.png",
+    "permission.html",
+    "iframe/audioVisualizer.html",
+    "iframe/cameraPreview.html"
+  ]
+}
